@@ -23,8 +23,8 @@
 │   ESP32 + 5 Buttons Controller      │
 │  (Controller Device)                │
 │  ┌─────────────────────────┐        │
-│  │  🔼 UP      🔴 START    │        │
-│  │  🔽 DOWN              │        │
+│  │  🔼 UP      🔴 START   │        │
+│  │  🔽 DOWN                │       │
 │  │  🔙 LEFT   ▶ RIGHT     │        │
 │  └─────────────────────────┘        │
 └─────────────────────────────────────┘
@@ -318,20 +318,6 @@ Edit `config.h` to customize your setup:
 
 ---
 
-## 🔧 Troubleshooting
-
-### ❌ Game Device Not Starting
-```
-Problem: No Serial output
-Solution:
-├─ Check USB cable connection
-├─ Verify board is ESP32 Dev Module
-├─ Check Serial Monitor baud rate: 115200
-└─ Try different USB port
-```
-
-### ❌ Display Not Working
-```
 Problem: Black screen, no display
 Solution:
 ├─ Verify all 5 display pins connected
@@ -340,29 +326,6 @@ Solution:
 └─ Test with SPI analyzer
 ```
 
-### ❌ Controller Can't Connect
-```
-Problem: WiFi connection failing
-Solution:
-├─ Verify SSID: "SnakeGame" in config
-├─ Check WiFi password matches
-├─ Ensure controller is in range
-├─ Check game device has powered on WiFi AP
-└─ Monitor Serial output on both devices
-```
-
-### ❌ Buttons Not Responding
-```
-Problem: Buttons don't control snake
-Solution:
-├─ Check GPIO pins match config.h
-├─ Verify button pull-up configuration
-├─ Test with Serial Monitor button output
-├─ Check button wiring (GND connected)
-└─ Try different GPIO pins if available
-```
-
----
 
 ## 📊 Game Mechanics
 

@@ -1,4 +1,5 @@
 #include "buzzer_hal.h"
+#include <Arduino.h>
 
 const uint8_t BuzzerHAL::BUZZER_CHANNEL = 0;
 const uint32_t BuzzerHAL::PWM_FREQUENCY = 5000;
@@ -6,16 +7,14 @@ const uint8_t BuzzerHAL::PWM_RESOLUTION = 8;
 
 void BuzzerHAL::init() {
     pinMode(PIN_BUZZER, OUTPUT);
-    ledcSetup(BUZZER_CHANNEL, PWM_FREQUENCY, PWM_RESOLUTION);
-    ledcAttachPin(PIN_BUZZER, BUZZER_CHANNEL);
-    ledcWrite(BUZZER_CHANNEL, 0);
+    digitalWrite(PIN_BUZZER, LOW);
     DEBUG_PRINTLN("Buzzer initialized");
 }
 
 void BuzzerHAL::beep(uint16_t frequency, uint16_t duration) {
-    ledcWriteTone(BUZZER_CHANNEL, frequency);
+    tone(PIN_BUZZER, frequency, duration);
     delay(duration);
-    ledcWrite(BUZZER_CHANNEL, 0);
+    noTone(PIN_BUZZER);
 }
 
 void BuzzerHAL::playSuccess() {
@@ -47,5 +46,6 @@ void BuzzerHAL::playPause() {
 }
 
 void BuzzerHAL::stop() {
-    ledcWrite(BUZZER_CHANNEL, 0);
+    noTone(PIN_BUZZER);
+    digitalWrite(PIN_BUZZER, LOW);
 }

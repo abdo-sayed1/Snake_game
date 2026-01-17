@@ -1,0 +1,14 @@
+node_modules/
+.DS_Store
+*.o
+*.a
+*.so
+.ino.cpp.o
+build/
+.vscode/
+*.swp
+*.swo
+*~
+.idea/
+.env
+.env.local
